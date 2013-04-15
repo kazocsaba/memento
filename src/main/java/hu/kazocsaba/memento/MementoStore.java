@@ -74,7 +74,7 @@ public class MementoStore {
 	
 	/**
 	 * Writes a memento to a stream in binary format. The data written this way can be safely read using
-	 * {@link #binaryToMemento(InputStream), even if additional data is appended to the stream after the
+	 * {@link #binaryToMemento(InputStream)}, even if additional data is appended to the stream after the
 	 * memento.
 	 * 
 	 * @param memento the memento

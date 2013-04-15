@@ -15,7 +15,7 @@ import java.util.Objects;
  * <p>
  * A memento can have child mementos; these are stored in creation order, and enable building a hierarchy to represent
  * complex data structures. For example, if a single memento holds the data of a person, child mementos can be used
- * to store a list of persons. For example:
+ * to store a list of persons.
  * <pre>
  *    private void saveInto(Person person, Memento target) {
  *        target.putString("name", person.getName());
@@ -30,6 +30,7 @@ import java.util.Objects;
  *        return m;
  *    }
  * </pre>
+ * <p>
  * Each memento can have a string type that can be used to differentiate between various kinds of child mementos. The
  * following code restores the list of persons.
  * <pre>
@@ -41,8 +42,10 @@ import java.util.Objects;
  *            if ("person".equals(child.getType()))
  *                people.add(new Person(child.getString("name"), child.getInt("age")));
  *        }
+ *        return people;
  *    }
  * </pre>
+ * <p>
  * This class allows later versions of a program to load mementos created by previous versions. If a new property has
  * been introduced, its existence can be tested using {@link #hasProperty(String)}, or (in simple cases) a
  * default value can be used in case the property is missing. For example:
@@ -299,7 +302,7 @@ public class Memento implements Iterable<Memento> {
 	 * <pre>    getPropertyType(key) != null</pre>
 	 * 
 	 * @param key a key
-	 * @return 
+	 * @return {@code true} if this memento contains a property with the specified key, {@code false} otherwise
 	 */
 	public boolean hasProperty(String key) {
 		Objects.requireNonNull(key, "null key");
