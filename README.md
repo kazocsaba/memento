@@ -49,6 +49,7 @@ Persistence can be implemented so:
         person.name=memento.getString("name");
         person.age=memento.getInt("age");
         person.iq=memento.getDouble("intelligence quotient");
+		return person;
     }
 
 ### Handling library evolution
@@ -84,6 +85,8 @@ mementos saved in the previous version if we handle the missing property:
         } else {
             // handle missing property
         }
+        
+		return person;
     }
 
 ### Complex data structures
@@ -116,6 +119,8 @@ Now suppose that we want to represent children of people too:
             Person child=loadPerson(childMemento);
             person.children.add(child);
         }
+        
+		return person;
     }
 
 If a memento needs to have multiple child mementos of different kinds, a string
@@ -140,4 +145,6 @@ can be used to identify the different memento types:
                 // read and add account details
             }
         }
+
+		return person;
     }
